@@ -1,0 +1,23 @@
+%h1.title 文档: #{@document.title}#{@version ? %Q|Version#{@version}| : nil}
+
+.versions
+  %a{:href => "/documents/#{params[:id]}/versions"} 编辑历史
+
+.meta
+  #{@document.updated_at}
+  编辑者: #{@document.last_editor_id}
+
+.content
+  = @document.html_content
+
+- if !@version
+  .authors
+    #{@document.editor_ids.count}位用户参与了此文档的编辑: 
+    - @document.editor_ids.each do |author|
+      %span= author
+
+
+%a{:href => "/documents#{@version ? "/" + params[:id] : nil}"} 返回
+- if !@version
+  %a{:href => "/documents/#{@document.id}/edit"} [编辑]
+  %a.remove{:href => "/documents/#{@document.id}"} [删除]

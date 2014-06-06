@@ -1,0 +1,10 @@
+%a{:href => "/documents/new"} 添加文档
+
+- if @documents.any?
+  %h1 现有文档
+  %ul
+    - @documents.each do |document|
+      %li
+        %a{:href => "/documents/#{document.id}"}= document.title
+        %a.remove{:href => "/documents/#{document.id}"} [删除]
+      

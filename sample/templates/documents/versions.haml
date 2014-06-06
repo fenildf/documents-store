@@ -1,0 +1,7 @@
+%h1 文档: #{@document.title} 编辑历史
+
+.versions
+  - @document.versions.each_with_index do |_, index|
+    %a{:href => "/documents/#{@document.id}/versions/#{index + 1}"} Version#{index + 1}
+
+%a{:href => "/documents/#{params[:id]}"} 返回

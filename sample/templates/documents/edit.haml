@@ -1,0 +1,5 @@
+%h1 文档: #{@document.title}
+= form @document
+
+%a{:href => "/documents"} 返回
+%a.remove{:href => "/documents/#{@document.id}"} [删除]

@@ -1,0 +1,12 @@
+source "https://ruby.taobao.org"
+
+gem "sinatra"
+gem "sinatra-contrib"
+gem "sinatra-assetpack"
+gem "haml"
+gem "sass"
+gem "coffee-script"
+gem "yui-compressor"
+gem "pry"
+gem "mongoid-versioning", github: "simi/mongoid-versioning"
+gem "documents-store", :path => "../"
