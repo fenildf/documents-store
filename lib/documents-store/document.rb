@@ -23,15 +23,8 @@ module DocumentsStore
       end
     end
 
-    def html_content
-      markdown = Redcarpet::Markdown.new(HTMLwithPygments, fenced_code_blocks: true)
-      markdown.render(content).html_safe
-    end
-
-    class HTMLwithPygments < Redcarpet::Render::HTML
-      def block_code(code, language)
-        Pygments.highlight(code, lexer: language)
-      end
+    def content
+      read_attribute(:content).html_safe
     end
   end
 end
