@@ -5,10 +5,10 @@ module DocumentsStore
     include Mongoid::Versioning
 
     field :title,          :type => String
-    field :content,        :type => String
+    field :content,        :type => String, :default => ""
     field :last_editor_id, :type => String
     field :creator_id,     :type => String
-    field :editor_ids,     :type => Array, :default => []
+    field :editor_ids,     :type => Array,  :default => []
 
     before_create do |doc|
       doc.last_editor_id = doc.creator_id
